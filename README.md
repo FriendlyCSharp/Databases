@@ -64,7 +64,7 @@ All ordered containers have stateful iterators. Typically an iterator is obtaine
 
 #### IteratorWithKey
 
-An [iterator](#iterator) whose elements are referenced by a key.
+The tree passes sequentially from the first or given to or higher than the specified key.
 
 Typical usage:
 
@@ -105,7 +105,7 @@ Other usages:
 
 #### ReverseIteratorWithKey
 
-An [iterator](#iterator) whose elements are referenced by a key. Provides all functions as [IteratorWithKey](#iteratorwithkey), but can also be used for reverse iteration.
+The tree passes successively from the last or entered or lower than the specified key.
 
 Typical usage of iteration in reverse:
 
@@ -140,11 +140,11 @@ Other usages:
 
 ### Enumerable
 
-Enumerable functions for ordered containers whose values whose elements are key/value pairs.
+Methods that seek the desired key and returns the key value pair.
 
 **Find**
 
-Passes each element of the container to the given function and returns the first (key,value) forwhich the function is true or nil,nil otherwise if no element matches the criteria.
+The method finds the specified key and returns the key value pair.
 
 ```cs
   public virtual  bool? BtnFind(TKey key, out TValue value)
@@ -157,7 +157,7 @@ Passes each element of the container to the given function and returns the first
 
 **First**
 
-????? Calls the given function once for each element, passing that element's key and value.
+The method finds the first key and returns the key value pair.
 
 ```cs
   public virtual bool? BtnFirst(out TKey key, out TValue value)
@@ -170,7 +170,7 @@ Passes each element of the container to the given function and returns the first
 
 **Last**
 
-????? Calls the given function once for each element, passing that element's key and value.
+The method finds the last key and returns the key value pair.
 
 ```cs
   public virtual bool? BtnLast(out TKey key, out TValue value)
@@ -183,7 +183,7 @@ Passes each element of the container to the given function and returns the first
 
 **Search**
 
-????? Calls the given function once for each element, passing that element's key and value.
+The method finds the specified key or the next higher and returns the key value pair.
 
 ```cs
   public virtual bool? BtnSearch(ref TKey key, out TValue value)
@@ -196,7 +196,7 @@ Passes each element of the container to the given function and returns the first
 
 **SearchPrev**
 
-????? Calls the given function once for each element, passing that element's key and value.
+The method finds the specified key or the next lower and returns the key value pair.
 
 ```cs
   public virtual bool? BtnSearchPrev(ref TKey key, out TValue value)
