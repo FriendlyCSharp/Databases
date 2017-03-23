@@ -1,6 +1,6 @@
 # Databases
 
-# Class BTreeN
+## Class BTreeN
 A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#
 ======
 FcsBTreeN<TKey, TValue>, FcsFastBTree<TKey, TValue>, FcsLockBTreeN<TKey, TValue>, FcsFastLockBTree<TKey, TValue>
