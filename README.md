@@ -258,4 +258,4 @@ PM> Install-Package FriendlyCSherp.Databases
 ```
 
 ## LICENSE
-See [LICENSE](LICENSE.md).
+See the [LICENSE](LICENSE).
