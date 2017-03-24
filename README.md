@@ -31,7 +31,7 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Windows 10, x64, .NET Framework 4.5.1
->Adding in a single thread:
+>**Adding in a single thread:**
 
 |  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
 | --- | :---: | ---: | ---: | ---: | :---: | :---: | :---: |
@@ -40,7 +40,7 @@ The benchmark was configured as follows:
 | HashSet&lt;...&gt; | No | 10,000,000 | 2,017 | 202 | 307% | 229 | 179% |
 | Dictionary&lt;...&gt; | No | 10,000,000 | 1,378 | 138 | 449% | 229 | 179% |
 
->`Foreach in a single thread:`
+>**Foreach in a single thread:**
 
 |  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time&nbsp;(ns) | speed |
 | --- | :---: | ---: | ---: | ---: | :---: |
@@ -66,7 +66,7 @@ Some data structures require a comparator method to automatically keep their ele
   }
 ```
 
->Writing custom class with comparators is easy:
+>**Writing custom class with comparators is easy:**
 
 ```cs
   public class MyBtnKeyValue : FcsBTreeN<int, uint>
