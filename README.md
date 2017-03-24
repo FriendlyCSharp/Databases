@@ -31,7 +31,7 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Threads/cores: 4;
-* Windows 10, x64
+* Windows 10, x64, .NET Framework 4.5.1
 ### Insertion:
 |  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
 | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
