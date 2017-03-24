@@ -3,15 +3,15 @@
 A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A library of cross platform C# data structures.
 
 #### [FcsBTreeN&lt;TKey, TValue&gt;](FcsBTreeN.cs)
-   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
+   + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
 #### [FcsFastBTreeN&lt;TKey, TValue&gt;](FcsFastBTreeN.cs)
-   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-   + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
+   + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
+   + `Methods:` BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 #### [FcsLockBTreeN&lt;TKey, TValue&gt;](FcsLockBTreeN.cs)
-   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
+   + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
 #### [FcsFastLockBTreeN&lt;TKey, TValue&gt;](FcsFastLockBTreeN.cs)
-   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-   + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
+   + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
+   + `Methods:` BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 
 &nbsp;
 ## Performance
@@ -50,10 +50,12 @@ The benchmark was configured as follows:
 
 &nbsp;
 ## Functions
-Various methods used throughout the library.
+>Various methods used throughout the library.
 
 ### Comparator
-Some data structures require a comparator method to automatically keep their elements sorted upon insertion. Default comparator is initialized as follows:
+Some data structures require a comparator method to automatically keep their elements sorted upon insertion. 
+
+>Default comparator is initialized as follows:
 
 ```cs
   protected virtual int BtnCompares(TKey keyX, TKey keyY, object objCmp)
@@ -62,7 +64,7 @@ Some data structures require a comparator method to automatically keep their ele
   }
 ```
 
-Writing custom class with comparators is easy:
+>Writing custom class with comparators is easy:
 
 ```cs
   public class MyBtnKeyValue : FcsBTreeN<int, uint>
@@ -91,7 +93,7 @@ All ordered containers have stateful iterators. Typically an iterator is obtaine
 
 Tree gradually passes from the lowest, from the specified keys or higher.
 
-Typical usage:
+>Typical usage:
 
 ```cs
   foreach(KeyValuePair<int, uint>? BtnKV in MyBtnKeyValue)
@@ -99,7 +101,7 @@ Typical usage:
   }
 ```
 
-Other usages:
+>Other usages:
 
 ```cs
   if (MyBtnKeyValue.BtnFirst(out btnKey, out btnValue) != null)
@@ -135,7 +137,7 @@ Other usages:
 
 The tree passes successively from the last or entered or lower than the specified key.
 
-Typical usage of iteration in reverse:
+>Typical usage of iteration in reverse:
 
 ```cs
   if (MyBtnKeyValue.BtnLast(out btnKey, out btnValue) != null)
@@ -147,7 +149,7 @@ Typical usage of iteration in reverse:
   }
 ```
 
-Other usages:
+>Other usages:
 
 ```cs
   if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
@@ -173,7 +175,7 @@ Other usages:
 
 Methods that seek the desired key and returns the key value pair or null.
 
-**Find**
+>**Find**
 
 The method finds the specified key and returns the key value pair or null.
 
@@ -186,7 +188,7 @@ The method finds the specified key and returns the key value pair or null.
   }
 ```
 
-**First**
+>**First**
 
 The method finds the first key and returns the key value pair or null.
 
@@ -199,7 +201,7 @@ The method finds the first key and returns the key value pair or null.
   }
 ```
 
-**Last**
+>**Last**
 
 The method finds the last key and returns the key value pair or null.
 
@@ -212,7 +214,7 @@ The method finds the last key and returns the key value pair or null.
   }
 ```
 
-**Search**
+>**Search**
 
 The method finds the specified key or the next higher and returns the key value pair or null.
 
@@ -225,7 +227,7 @@ The method finds the specified key or the next higher and returns the key value 
   }
 ```
 
-**SearchPrev**
+>**SearchPrev**
 
 The method finds the specified key or the next lower and returns the key value pair or null.
 
@@ -238,7 +240,7 @@ The method finds the specified key or the next lower and returns the key value p
   }
 ```
 
-**Example:**
+>**Example:**
 
 ```cs
 ```
