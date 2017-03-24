@@ -2,20 +2,14 @@
 
 A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A library of cross platform C# data structures.
 
- * [FcsBTreeN&lt;TKey, TValue&gt;](FcsBTreeN.cs)
+#### [FcsBTreeN&lt;TKey, TValue&gt;](FcsBTreeN.cs)
    + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-
-&nbsp;
- * [FcsFastBTreeN&lt;TKey, TValue&gt;](FcsFastBTreeN.cs)
+#### [FcsFastBTreeN&lt;TKey, TValue&gt;](FcsFastBTreeN.cs)
    + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
    + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
-
-&nbsp;
- * [FcsLockBTreeN&lt;TKey, TValue&gt;](FcsLockBTreeN.cs)
+#### [FcsLockBTreeN&lt;TKey, TValue&gt;](FcsLockBTreeN.cs)
    + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-
-&nbsp;
- * [FcsFastLockBTreeN&lt;TKey, TValue&gt;](FcsFastLockBTreeN.cs)
+#### [FcsFastLockBTreeN&lt;TKey, TValue&gt;](FcsFastLockBTreeN.cs)
    + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
    + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 
