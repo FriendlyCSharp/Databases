@@ -18,10 +18,10 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 |  | sorted by&nbsp;key | duplicate keys | locking records |
 | --- | :---: | :---: | :---: |
 | [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** |
-| __**FcsBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |
-| __**FcsFastBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |	
-| __**FcsLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |
-| __**FcsFastLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |
+| **FcsBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |
+| **FcsFastBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |	
+| **FcsLockBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |
+| **FcsFastLockBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |
 | SortedSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | **Yes** | No | No |
 | HashSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | No | No | No |
 | Dictionary&lt;int, uint&gt; | No | No | No |
@@ -30,31 +30,30 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 ## Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
-* Threads/cores: 4;
 * Windows 10, x64, .NET Framework 4.5.1
 ### Adding in a single thread:
 |  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
 | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10000000 | **6,185** | **619** | **100%** | **128** | **100%** |
-| SortedSet&lt;...&gt; | **Yes** | 10000000 | ~~&nbsp;19,443&nbsp;~~ | ~~&nbsp;1,944&nbsp;~~ | ~~&nbsp;32%&nbsp;~~ | ~~&nbsp;458&nbsp;~~ | ~~&nbsp;358%&nbsp;~~ |
-| HashSet&lt;...&gt; | No | 10000000 | 2,017 | 202 | 307% | 229 | 179% |
-| Dictionary&lt;...&gt; | No | 10000000 | 1,378 | 138 | 449% | 229 | 179% |
+| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10,000,000 | **6,185** | **619** | **100%** | **128** | **100%** |
+| SortedSet&lt;...&gt; | **Yes** | 10,000,000 | ~~&nbsp;19,443&nbsp;~~ | ~~&nbsp;1,944&nbsp;~~ | ~~&nbsp;32%&nbsp;~~ | ~~&nbsp;458&nbsp;~~ | ~~&nbsp;358%&nbsp;~~ |
+| HashSet&lt;...&gt; | No | 10,000,000 | 2,017 | 202 | 307% | 229 | 179% |
+| Dictionary&lt;...&gt; | No | 10,000,000 | 1,378 | 138 | 449% | 229 | 179% |
 
 ### Foreach in a single thread:
 |  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time&nbsp;(ns) | speed |
 | --- | :---: | ---: | ---: | ---: | ---: |
-| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10000000 | **101** | **10.08** | **198%** |		
-| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10000000 | **200** | **20** | **100%** |		
-| SortedSet&lt;...&gt; | **Yes** | 10000000 | ~~&nbsp;1,230&nbsp;~~ | ~~&nbsp;123&nbsp;~~ | ~~&nbsp;16%&nbsp;~~ |
-| HashSet&lt;...&gt; | No | 10000000 | 47.3 | 4,73 | 422%	|
-| Dictionary&lt;...&gt; | No | 10000000 | 86.5 | 8,65 | 231% |		
+| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10,000,000 | **101** | **10.08** | **198%** |		
+| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10,000,000 | **200** | **20** | **100%** |		
+| SortedSet&lt;...&gt; | **Yes** | 10,000,000 | ~~&nbsp;1,230&nbsp;~~ | ~~&nbsp;123&nbsp;~~ | ~~&nbsp;16%&nbsp;~~ |
+| HashSet&lt;...&gt; | No | 10,000,000 | 47.3 | 4,73 | 422%	|
+| Dictionary&lt;...&gt; | No | 10,000,000 | 86.5 | 8,65 | 231% |		
 
 &nbsp;
 ## Functions
 Various methods used throughout the library.
 
 ### Comparator
-Some data structures (e.g. TreeMap, TreeSet) require a comparator function to automatically keep their elements sorted upon insertion. Default comparator is initialized as follows:
+Some data structures require a comparator method to automatically keep their elements sorted upon insertion. Default comparator is initialized as follows:
 
 ```cs
   protected virtual int BtnCompares(TKey keyX, TKey keyY, object objCmp)
@@ -170,13 +169,13 @@ Other usages:
   }
 ```
 
-### Enumerable
+### Enumerate
 
-Methods that seek the desired key and returns the key value pair.
+Methods that seek the desired key and returns the key value pair or null.
 
 **Find**
 
-The method finds the specified key and returns the key value pair.
+The method finds the specified key and returns the key value pair or null.
 
 ```cs
   public virtual  bool? BtnFind(TKey key, out TValue value)
@@ -189,7 +188,7 @@ The method finds the specified key and returns the key value pair.
 
 **First**
 
-The method finds the first key and returns the key value pair.
+The method finds the first key and returns the key value pair or null.
 
 ```cs
   public virtual bool? BtnFirst(out TKey key, out TValue value)
@@ -202,7 +201,7 @@ The method finds the first key and returns the key value pair.
 
 **Last**
 
-The method finds the last key and returns the key value pair.
+The method finds the last key and returns the key value pair or null.
 
 ```cs
   public virtual bool? BtnLast(out TKey key, out TValue value)
@@ -215,7 +214,7 @@ The method finds the last key and returns the key value pair.
 
 **Search**
 
-The method finds the specified key or the next higher and returns the key value pair.
+The method finds the specified key or the next higher and returns the key value pair or null.
 
 ```cs
   public virtual bool? BtnSearch(ref TKey key, out TValue value)
@@ -228,7 +227,7 @@ The method finds the specified key or the next higher and returns the key value 
 
 **SearchPrev**
 
-The method finds the specified key or the next lower and returns the key value pair.
+The method finds the specified key or the next lower and returns the key value pair or null.
 
 ```cs
   public virtual bool? BtnSearchPrev(ref TKey key, out TValue value)
