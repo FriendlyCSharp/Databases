@@ -1,4 +1,4 @@
-# namespace Friendly.Databases
+# namespace FriendlyCSharp.Databases
 
 A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#
 
