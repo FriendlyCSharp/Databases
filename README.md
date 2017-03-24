@@ -51,16 +51,10 @@ The benchmark was configured as follows:
 
 &nbsp;
 ## Functions
-Various helper functions used throughout the library.
+Various methods used throughout the library.
 
 ### Comparator
-Some data structures (e.g. TreeMap, TreeSet) require a comparator function to automatically keep their elements sorted upon insertion. This comparator is necessary during the initalization.
-
-Comparator is defined as:
-
-Return values (int):
-
-Comparator signature:
+Some data structures (e.g. TreeMap, TreeSet) require a comparator function to automatically keep their elements sorted upon insertion. Default comparator is initialized as follows:
 
 ```cs
   protected virtual int BtnCompares(TKey keyX, TKey keyY, object objCmp)
@@ -90,13 +84,13 @@ Writing custom class with comparators is easy:
   }
 ```
 
-### Iterator
+### Iterators
 
 All ordered containers have stateful iterators. Typically an iterator is obtained by _Iterator()_ function of an ordered container. Once obtained, iterator''s _Next()_ function moves the iterator to the next element and returns true if there was a next element. If there was an element, then element''s can be obtained by iterator''s _Value()_ function. Depending on the ordering type, it''s position can be obtained by iterator''s _Key()_ functions. Some containers even provide reversible iterators, essentially the same, but provide another extra _Prev()_ function that moves the iterator to the previous element and returns true if there was a previous element.Note: it is unsafe to remove elements from container while iterating.
 
-#### IteratorWithKey
+#### Iterator
 
-The tree passes sequentially from the first or given to or higher than the specified key.
+Tree gradually passes from the lowest, from the specified keys or higher.
 
 Typical usage:
 
@@ -138,7 +132,7 @@ Other usages:
   }
 ```
 
-#### ReverseIteratorWithKey
+#### Reverse Iterator
 
 The tree passes successively from the last or entered or lower than the specified key.
 
