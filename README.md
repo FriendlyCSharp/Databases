@@ -40,7 +40,7 @@ The benchmark was configured as follows:
 | HashSet&lt;...&gt; | No | 10,000,000 | 2,017 | 202 | 307% | 229 | 179% |
 | Dictionary&lt;...&gt; | No | 10,000,000 | 1,378 | 138 | 449% | 229 | 179% |
 
->Foreach in a single thread:
+>`Foreach in a single thread:`
 
 |  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time&nbsp;(ns) | speed |
 | --- | :---: | ---: | ---: | ---: | :---: |
