@@ -69,7 +69,7 @@ Comparator signature:
   }
 ```
 
-Writing custom comparators is easy:
+Writing custom class with comparators is easy:
 
 ```cs
   public class MyBtnKeyValue : FcsBTreeN<int, uint>
