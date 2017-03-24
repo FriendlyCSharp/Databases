@@ -21,15 +21,16 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 
 &nbsp;
 ## Performance
-|  | sorted by&nbsp;key | duplicate keys |					
-| --- | :---: | :---: |
-| __**FcsBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
-| __**FcsFastBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
-| __**FcsLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
-| __**FcsFastLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
-| SortedSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | **Yes** | No |
-| HashSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | No | No |
-| Dictionary&lt;int, uint&gt; | No | No |
+|  | sorted by&nbsp;key | duplicate keys | locking records |
+| --- | :---: | :---: | :---: |
+| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** |
+| __**FcsBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |
+| __**FcsFastBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |	
+| __**FcsLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |
+| __**FcsFastLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** | No |
+| SortedSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | **Yes** | No | No |
+| HashSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | No | No | No |
+| Dictionary&lt;int, uint&gt; | No | No | No |
 
 &nbsp;
 ## Benchmark 
@@ -48,7 +49,7 @@ The benchmark was configured as follows:
 ### Foreach:
 |  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time&nbsp;(ns) | speed |
 | --- | :---: | ---: | ---: | ---: | ---: |
-| [**inmem&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10000000 | **101** | **10.08** | **198%** |		
+| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10000000 | **101** | **10.08** | **198%** |		
 | **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10000000 | **200** | **20** | **100%** |		
 | SortedSet&lt;...&gt; | **Yes** | 10000000 | ~~&nbsp;1,230&nbsp;~~ | ~~&nbsp;123&nbsp;~~ | ~~&nbsp;16%&nbsp;~~ |
 | HashSet&lt;...&gt; | No | 10000000 | 47.3 | 4,73 | 422%	|
