@@ -17,11 +17,11 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 ## Performance
 |  | sorted by&nbsp;key | duplicate keys | locking records |
 | --- | :---: | :---: | :---: |
-| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** |
-| **FcsBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |
-| **FcsFastBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |	
-| **FcsLockBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |
-| **FcsFastLockBTreeN&lt;int, uint&gt;** | **Yes** | **Yes** | No |
+| [**`fastDB<...>`**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** |
+| **`FcsBTreeN<int, uint>`** | **Yes** | **Yes** | No |
+| **`FcsFastBTreeN<int, uint>`** | **Yes** | **Yes** | No |	
+| **`FcsLockBTreeN<int, uint>`** | **Yes** | **Yes** | No |
+| **`FcsFastLockBTreeN<int, uint>`** | **Yes** | **Yes** | No |
 | SortedSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | **Yes** | No | No |
 | HashSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | No | No | No |
 | Dictionary&lt;int, uint&gt; | No | No | No |
@@ -31,19 +31,21 @@ A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Windows 10, x64, .NET Framework 4.5.1
-### Adding in a single thread:
+>Adding in a single thread:
+
 |  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
 | --- | :---: | ---: | ---: | ---: | :---: | :---: | :---: |
-| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10,000,000 | **6,185** | **619** | **100%** | **128** | **100%** |
+| **`FcsFastBTreeN<...>`** | **Yes** | 10,000,000 | **6,185** | **619** | **100%** | **128** | **100%** |
 | SortedSet&lt;...&gt; | **Yes** | 10,000,000 | ~~&nbsp;19,443&nbsp;~~ | ~~&nbsp;1,944&nbsp;~~ | ~~&nbsp;32%&nbsp;~~ | ~~&nbsp;458&nbsp;~~ | ~~&nbsp;358%&nbsp;~~ |
 | HashSet&lt;...&gt; | No | 10,000,000 | 2,017 | 202 | 307% | 229 | 179% |
 | Dictionary&lt;...&gt; | No | 10,000,000 | 1,378 | 138 | 449% | 229 | 179% |
 
-### Foreach in a single thread:
+>Foreach in a single thread:
+
 |  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time&nbsp;(ns) | speed |
 | --- | :---: | ---: | ---: | ---: | :---: |
-| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10,000,000 | **101** | **10.08** | **198%** |		
-| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10,000,000 | **200** | **20** | **100%** |		
+| [**`fastDB<...>`**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10,000,000 | **101** | **10.08** | **198%** |		
+| **`FcsFastBTreeN<...>`** | **Yes** | 10,000,000 | **200** | **20** | **100%** |		
 | SortedSet&lt;...&gt; | **Yes** | 10,000,000 | ~~&nbsp;1,230&nbsp;~~ | ~~&nbsp;123&nbsp;~~ | ~~&nbsp;16%&nbsp;~~ |
 | HashSet&lt;...&gt; | No | 10,000,000 | 47.3 | 4,73 | 422%	|
 | Dictionary&lt;...&gt; | No | 10,000,000 | 86.5 | 8,65 | 231% |		
