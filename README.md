@@ -32,7 +32,7 @@ The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Threads/cores: 4;
 * Windows 10, x64, .NET Framework 4.5.1
-### Insertion:
+### Adding in a single thread:
 |  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
 | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10000000 | **6,185** | **619** | **100%** | **128** | **100%** |
@@ -40,7 +40,7 @@ The benchmark was configured as follows:
 | HashSet&lt;...&gt; | No | 10000000 | 2,017 | 202 | 307% | 229 | 179% |
 | Dictionary&lt;...&gt; | No | 10000000 | 1,378 | 138 | 449% | 229 | 179% |
 
-### Foreach:
+### Foreach in a single thread:
 |  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time&nbsp;(ns) | speed |
 | --- | :---: | ---: | ---: | ---: | ---: |
 | [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10000000 | **101** | **10.08** | **198%** |		
@@ -109,30 +109,33 @@ Typical usage:
 Other usages:
 
 ```cs
-  if (MyBtnKeyValue.BtnFirst(out btnKey, out btnValue) == null)
-    return;
-  do
+  if (MyBtnKeyValue.BtnFirst(out btnKey, out btnValue) != null)
   {
+    do
+    {
+    }
+    while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
   }
-  while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
 ```
 
 ```cs
-  if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) == null)
-    return;
-  do
+  if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
   {
+    do
+    {
+    }
+    while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
   }
-  while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
 ```
 
 ```cs
-  if (MyBtnKeyValue.BtnSearch(ref btnKey, out btnValue) == null)
-    return;
-  do
+  if (MyBtnKeyValue.BtnSearch(ref btnKey, out btnValue) != null)
   {
+    do
+    {
+    }
+    while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
   }
-  while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
 ```
 
 #### ReverseIteratorWithKey
@@ -142,32 +145,35 @@ The tree passes successively from the last or entered or lower than the specifie
 Typical usage of iteration in reverse:
 
 ```cs
-  if (MyBtnKeyValue.BtnLast(out btnKey, out btnValue) == null)
-    return;
-  do
+  if (MyBtnKeyValue.BtnLast(out btnKey, out btnValue) != null)
   {
+    do
+    {
+    }
+    while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
   }
-  while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
 ```
 
 Other usages:
 
 ```cs
-  if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) == null)
-    return;
-  do
+  if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
   {
+    do
+    {
+    }
+    while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
   }
-  while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
 ```
 
 ```cs
-  if (MyBtnKeyValue.BtnSearchPrev(btnKey, out btnValue) == null)
-    return;
-  do
+  if (MyBtnKeyValue.BtnSearchPrev(btnKey, out btnValue) != null)
   {
+    do
+    {
+    }
+    while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
   }
-  while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
 ```
 
 ### Enumerable
@@ -252,4 +258,4 @@ PM> Install-Package FriendlyCSherp.Databases
 ```
 
 ## LICENSE
-This project is licensed under the [MIT License](LICENSE.md).
+See [LICENSE](LICENSE.md).
