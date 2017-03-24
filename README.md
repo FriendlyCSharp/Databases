@@ -1,22 +1,60 @@
-# namespace FriendlyCSharp.Databases
+# FriendlyCSharp.Databases
 
-A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#
+A fast, generic, keyvalue, multi-dimensional Binary Search Tree written in C#. A library of cross platform C# data structures.
 
- * [FcsBTreeN<TKey, TValue>](FcsBTreeN.cs)
+ * [FcsBTreeN&lt;TKey, TValue&gt;](FcsBTreeN.cs)
    + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
 
- * [FcsFastBTree<TKey, TValue>](FcsFastBTreeN.cs)
-   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-   + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
-
- * [FcsLockBTreeN<TKey, TValue>](FcsLockBTreeN.cs)
-   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-
- * [FcsFastLockBTree<TKey, TValue>](FcsFastLockBTreeN.cs)
+&nbsp;
+ * [FcsFastBTreeN&lt;TKey, TValue&gt;](FcsFastBTreeN.cs)
    + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
    + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 
+&nbsp;
+ * [FcsLockBTreeN&lt;TKey, TValue&gt;](FcsLockBTreeN.cs)
+   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
 
+&nbsp;
+ * [FcsFastLockBTreeN&lt;TKey, TValue&gt;](FcsFastLockBTreeN.cs)
+   + Methods: BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
+   + Methods: BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
+
+&nbsp;
+## Performance
+|  | sorted by&nbsp;key | duplicate keys |					
+| --- | :---: | :---: |
+| __**FcsBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
+| __**FcsFastBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
+| __**FcsLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
+| __**FcsFastLockBTreeN&lt;int, uint&gt;**__ | **Yes** | **Yes** |			
+| SortedSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | **Yes** | No |
+| HashSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | No | No |
+| Dictionary&lt;int, uint&gt; | No | No |
+
+&nbsp;
+## Benchmark 
+The benchmark was configured as follows:
+* CPU: Intel Xeon E3-1245 @ 3.3 GHz;
+* Threads/cores: 4;
+* Windows 10, x64
+### Insertion:
+|  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
+| --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10000000 | **6,185** | **619** | **100%** | **128** | **100%** |
+| SortedSet&lt;...&gt; | **Yes** | 10000000 | ~~&nbsp;19,443&nbsp;~~ | ~~&nbsp;1,944&nbsp;~~ | ~~&nbsp;32%&nbsp;~~ | ~~&nbsp;458&nbsp;~~ | ~~&nbsp;358%&nbsp;~~ |
+| HashSet&lt;...&gt; | No | 10000000 | 2,017 | 202 | 307% | 229 | 179% |
+| Dictionary&lt;...&gt; | No | 10000000 | 1,378 | 138 | 449% | 229 | 179% |
+
+### Foreach:
+|  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time&nbsp;(ns) | speed |
+| --- | :---: | ---: | ---: | ---: | ---: |
+| [**inmem&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10000000 | **101** | **10.08** | **198%** |		
+| **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10000000 | **200** | **20** | **100%** |		
+| SortedSet&lt;...&gt; | **Yes** | 10000000 | ~~&nbsp;1,230&nbsp;~~ | ~~&nbsp;123&nbsp;~~ | ~~&nbsp;16%&nbsp;~~ |
+| HashSet&lt;...&gt; | No | 10000000 | 47.3 | 4,73 | 422%	|
+| Dictionary&lt;...&gt; | No | 10000000 | 86.5 | 8,65 | 231% |		
+
+&nbsp;
 ## Functions
 Various helper functions used throughout the library.
 
