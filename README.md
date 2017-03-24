@@ -32,16 +32,16 @@ The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Windows 10, x64, .NET Framework 4.5.1
 ### Adding in a single thread:
-|  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
-| --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
+| --- | :---: | ---: | ---: | ---: | :---: | :---: | :---: |
 | **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10,000,000 | **6,185** | **619** | **100%** | **128** | **100%** |
 | SortedSet&lt;...&gt; | **Yes** | 10,000,000 | ~~&nbsp;19,443&nbsp;~~ | ~~&nbsp;1,944&nbsp;~~ | ~~&nbsp;32%&nbsp;~~ | ~~&nbsp;458&nbsp;~~ | ~~&nbsp;358%&nbsp;~~ |
 | HashSet&lt;...&gt; | No | 10,000,000 | 2,017 | 202 | 307% | 229 | 179% |
 | Dictionary&lt;...&gt; | No | 10,000,000 | 1,378 | 138 | 449% | 229 | 179% |
 
 ### Foreach in a single thread:
-|  | sorted by&nbsp;key | Iteration | Total&nbsp;(ms) | one time&nbsp;(ns) | speed |
-| --- | :---: | ---: | ---: | ---: | ---: |
+|  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time&nbsp;(ns) | speed |
+| --- | :---: | ---: | ---: | ---: | :---: |
 | [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | 10,000,000 | **101** | **10.08** | **198%** |		
 | **FcsFastBTreeN&lt;...&gt;** | **Yes** | 10,000,000 | **200** | **20** | **100%** |		
 | SortedSet&lt;...&gt; | **Yes** | 10,000,000 | ~~&nbsp;1,230&nbsp;~~ | ~~&nbsp;123&nbsp;~~ | ~~&nbsp;16%&nbsp;~~ |
