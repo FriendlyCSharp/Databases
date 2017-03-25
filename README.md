@@ -18,16 +18,23 @@ A library of cross platform C# data structures. Generic [**B-tree**](https://en.
 
 &nbsp;
 ## Performance
-|  | sorted by&nbsp;key | duplicate keys | locking records |
-| --- | :---: | :---: | :---: |
-| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** |
-| [**FcsBTreeN&lt;TKey, TValue&gt;**](#fcsbtreentkey-tvalue) | **Yes** | **Yes** | No |
-| [**FcsFastBTreeN&lt;TKey, TValue&gt;**](#fcsfastbtreentkey-tvalue) | **Yes** | **Yes** | No |	
-| [**FcsLockBTreeN&lt;TKey, TValue&gt;**](#fcslockbtreentkey-tvalue) | **Yes** | **Yes** | No |
-| [**FcsFastLockBTreeN&lt;TKey, TValue&gt;**](#fcsfastlockbtreentkey-tvalue) | **Yes** | **Yes** | No |
-| SortedSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | **Yes** | No | No |
-| HashSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | No | No | No |
-| Dictionary&lt;TKey, TValue&gt; | No | No | No |
+A [**B-tree**](https://en.wikipedia.org/wiki/B-tree) of order m is a tree which satisfies the following properties:
+1. Every node has at most m children.
+2. Every non-leaf node (except root) has at least ⌈m/2⌉ children.
+3. The root has at least two children if it is not a leaf node.
+4. A non-leaf node with k children contains k−1 keys.
+5. All leaves appear in the same level.
+
+| generic class | sorted by&nbsp;key | duplicate keys | B-tree | locking records |
+| --- | :---: | :---: | :---: | :---: |
+| [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** | **Yes** |
+| [**FcsBTreeN&lt;TKey, TValue&gt;**](#fcsbtreentkey-tvalue) | **Yes** | **Yes** | **Yes** | No |
+| [**FcsFastBTreeN&lt;TKey, TValue&gt;**](#fcsfastbtreentkey-tvalue) | **Yes** | **Yes** | **Yes** | No |	
+| [**FcsLockBTreeN&lt;TKey, TValue&gt;**](#fcslockbtreentkey-tvalue) | **Yes** | **Yes** | **Yes** | No |
+| [**FcsFastLockBTreeN&lt;TKey, TValue&gt;**](#fcsfastlockbtreentkey-tvalue) | **Yes** | **Yes** | **Yes** | No |
+| SortedSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | **Yes** | No | No | No |
+| HashSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | No | No | No | No |
+| Dictionary&lt;TKey, TValue&gt; | No | No | No | No |
 
 &nbsp;
 ## Benchmark 
