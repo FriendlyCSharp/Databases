@@ -1,7 +1,7 @@
 # FriendlyCSharp.Databases
 
-A library of cross platform C# data structures. Generic [B-tree](https://en.wikipedia.org/wiki/B-tree) written in C#, which can be replaced with NoSQL database stored in the memory of discharge requirements in real-time (*Firebase, Redis Cache, SAP HANA, Exadata, OLTP, etc.*). Basic information B-tree can be found in the book N. Wirth, Algorithms + data structures = programs and on Wikipedia, namely:
->"*In computer science, a B-tree is a self-balancing tree data structure that keeps data sorted and allows searches, sequential access, insertions, and deletions in logarithmic time. The B-tree is a generalization of a binary search tree in that a node can have more than two children (Comer 1979, p. 123). Unlike self-balancing binary search trees, the B-tree is optimized for systems that read and write large blocks of data. B-trees are a good example of a data structure for external memory. It is commonly used in databases and filesystems. (...) Rudolf Bayer and Ed McCreight invented the B-tree while working at Boeing Research Labs in 1971 (Bayer & McCreight 1972), but they did not explain what, if anything, the B stands for.*" - [Wikipedia](https://en.wikipedia.org/wiki/B-tree).
+A library of cross platform C# data structures. Generic [**B-tree**](https://en.wikipedia.org/wiki/B-tree) written in C#, which can be replaced with NoSQL database stored in the memory of discharge requirements in real-time (*Firebase, Redis Cache, SAP HANA, Exadata, OLTP, etc.*). Basic information B-tree can be found in the book N. Wirth, Algorithms + data structures = programs and on Wikipedia, namely:
+>"*In computer science, a B-tree is a self-balancing tree data structure that keeps data sorted and allows searches, sequential access, insertions, and deletions in logarithmic time. The B-tree is a generalization of a binary search tree in that a node can have more than two children (Comer 1979, p. 123). Unlike self-balancing binary search trees, the B-tree is optimized for systems that read and write large blocks of data. B-trees are a good example of a data structure for external memory. It is commonly used in databases and filesystems. (...) Rudolf Bayer and Ed McCreight invented the B-tree while working at Boeing Research Labs in 1971 (Bayer & McCreight 1972), but they did not explain what, if anything, the B stands for.*" -&nbsp;[Wikipedia](https://en.wikipedia.org/wiki/B-tree).
 
 &nbsp;
 ## B-Tree generic class
@@ -64,31 +64,31 @@ Some data structures require a comparator method to automatically keep their ele
 >Default comparator is initialized as follows:
 
 ```cs
-  protected virtual int BtnCompares(TKey keyX, TKey keyY, object objCmp)
-  {
-    return keyX.CompareTo(keyY);
-  }
+protected virtual int BtnCompares(TKey keyX, TKey keyY, object objCmp)
+{
+  return keyX.CompareTo(keyY);
+}
 ```
 
 >**Writing custom class with comparators is easy:**
 
 ```cs
-  public class MyBtnKeyValue : FcsBTreeN<int, uint>
+public class MyBtnKeyValue : FcsBTreeN<int, uint>
+{
+  protected override void BtnUpdates(int keyAdd, uint valueAdd, ref uint valueUpdates, object objUpdates)
   {
-    protected override void BtnUpdates(int keyAdd, uint valueAdd, ref uint valueUpdates, object objUpdates)
-    {
-      valueUpdates++;
-    }
-    //////////////////////////
-    protected override int BtnCompares(int keyX, int keyY, object objCmp)
-    {
-      return keyX - keyY;
-    }
-    //////////////////////////
-    public MyBtnKeyValue() : base()
-    {
-    }
+    valueUpdates++;
   }
+  //////////////////////////
+  protected override int BtnCompares(int keyX, int keyY, object objCmp)
+  {
+    return keyX - keyY;
+  }
+  //////////////////////////
+  public MyBtnKeyValue() : base()
+  {
+  }
+}
 ```
 
 ### Iterators
@@ -102,41 +102,41 @@ Tree gradually passes from the lowest, from the specified keys or higher.
 >Typical usage:
 
 ```cs
-  foreach(KeyValuePair<int, uint>? BtnKV in MyBtnKeyValue)
-  {
-  }
+foreach(KeyValuePair<int, uint>? BtnKV in MyBtnKeyValue)
+{
+}
 ```
 
 >Other usages:
 
 ```cs
-  if (MyBtnKeyValue.BtnFirst(out btnKey, out btnValue) != null)
+if (MyBtnKeyValue.BtnFirst(out btnKey, out btnValue) != null)
+{
+  do
   {
-    do
-    {
-    }
-    while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
   }
+  while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
+}
 ```
 
 ```cs
-  if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
+if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
+{
+  do
   {
-    do
-    {
-    }
-    while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
   }
+  while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
+}
 ```
 
 ```cs
-  if (MyBtnKeyValue.BtnSearch(ref btnKey, out btnValue) != null)
+if (MyBtnKeyValue.BtnSearch(ref btnKey, out btnValue) != null)
+{
+  do
   {
-    do
-    {
-    }
-    while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
   }
+  while (MyBtnKeyValue.BtnNext(ref btnKey, out btnValue) != null)
+}
 ```
 
 #### Reverse Iterator
@@ -146,35 +146,35 @@ The tree passes successively from the last or entered or lower than the specifie
 >Typical usage of iteration in reverse:
 
 ```cs
-  if (MyBtnKeyValue.BtnLast(out btnKey, out btnValue) != null)
+if (MyBtnKeyValue.BtnLast(out btnKey, out btnValue) != null)
+{
+  do
   {
-    do
-    {
-    }
-    while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
   }
+  while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
+}
 ```
 
 >Other usages:
 
 ```cs
-  if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
+if (MyBtnKeyValue.BtnFind(btnKey, out btnValue) != null)
+{
+  do
   {
-    do
-    {
-    }
-    while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
   }
+  while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
+}
 ```
 
 ```cs
-  if (MyBtnKeyValue.BtnSearchPrev(btnKey, out btnValue) != null)
+if (MyBtnKeyValue.BtnSearchPrev(btnKey, out btnValue) != null)
+{
+  do
   {
-    do
-    {
-    }
-    while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
   }
+  while (MyBtnKeyValue.BtnPrev(ref btnKey, out btnValue) != null)
+}
 ```
 
 ### Enumerate
@@ -186,12 +186,12 @@ Methods that seek the desired key and returns the key value pair or null.
 The method finds the specified key and returns the key value pair or null.
 
 ```cs
-  public virtual  bool? BtnFind(TKey key, out TValue value)
-  {
-  }
-  public virtual (TKey key, TValue value)? BtnFind(TKey key)
-  {
-  }
+public virtual  bool? BtnFind(TKey key, out TValue value)
+{
+}
+public virtual (TKey key, TValue value)? BtnFind(TKey key)
+{
+}
 ```
 
 >**First**
@@ -199,12 +199,12 @@ The method finds the specified key and returns the key value pair or null.
 The method finds the first key and returns the key value pair or null.
 
 ```cs
-  public virtual bool? BtnFirst(out TKey key, out TValue value)
-  {
-  }
-  protected (TKey key, TValue value)? BtnFirst()
-  {
-  }
+public virtual bool? BtnFirst(out TKey key, out TValue value)
+{
+}
+public virtual (TKey key, TValue value)? BtnFirst()
+{
+}
 ```
 
 >**Last**
@@ -212,12 +212,12 @@ The method finds the first key and returns the key value pair or null.
 The method finds the last key and returns the key value pair or null.
 
 ```cs
-  public virtual bool? BtnLast(out TKey key, out TValue value)
-  {
-  }
-  public virtual (TKey key, TValue value)? BtnLast()
-  {
-  }
+public virtual bool? BtnLast(out TKey key, out TValue value)
+{
+}
+public virtual (TKey key, TValue value)? BtnLast()
+{
+}
 ```
 
 >**Search**
@@ -225,12 +225,12 @@ The method finds the last key and returns the key value pair or null.
 The method finds the specified key or the next higher and returns the key value pair or null.
 
 ```cs
-  public virtual bool? BtnSearch(ref TKey key, out TValue value)
-  {
-  }
-  public virtual (TKey key, TValue value)? BtnSearch(TKey key)
-  {
-  }
+public virtual bool? BtnSearch(ref TKey key, out TValue value)
+{
+}
+public virtual (TKey key, TValue value)? BtnSearch(TKey key)
+{
+}
 ```
 
 >**SearchPrev**
@@ -238,12 +238,12 @@ The method finds the specified key or the next higher and returns the key value 
 The method finds the specified key or the next lower and returns the key value pair or null.
 
 ```cs
-  public virtual bool? BtnSearchPrev(ref TKey key, out TValue value)
-  {
-  }
-  public virtual (TKey key, TValue value)? BtnSearchPrev(TKey key)
-  {
-  }
+public virtual bool? BtnSearchPrev(ref TKey key, out TValue value)
+{
+}
+public virtual (TKey key, TValue value)? BtnSearchPrev(TKey key)
+{
+}
 ```
 
 >**Example:**
