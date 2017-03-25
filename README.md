@@ -21,19 +21,20 @@ A library of cross platform C# data structures. Generic B-tree written in C#, wh
 |  | sorted by&nbsp;key | duplicate keys | locking records |
 | --- | :---: | :---: | :---: |
 | [**fastDB&lt;...&gt;**](http://www.inmem.cz/inmem_letak.pdf) | **Yes** | **Yes** | **Yes** |
-| [**FcsBTreeN&lt;int, uint&gt;**](#fcsbtreentkey-tvalue) | **Yes** | **Yes** | No |
-| [**FcsFastBTreeN&lt;int, uint&gt;**](#fcsfastbtreentkey-tvalue) | **Yes** | **Yes** | No |	
-| [**FcsLockBTreeN&lt;int, uint&gt;**](#fcslockbtreentkey-tvalue) | **Yes** | **Yes** | No |
-| [**FcsFastLockBTreeN&lt;int, uint&gt;**](#fcsfastlockbtreentkey-tvalue) | **Yes** | **Yes** | No |
-| SortedSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | **Yes** | No | No |
-| HashSet&lt;KeyValuePair&lt;int, uint&gt;&gt; | No | No | No |
-| Dictionary&lt;int, uint&gt; | No | No | No |
+| [**FcsBTreeN&lt;TKey, TValue&gt;**](#fcsbtreentkey-tvalue) | **Yes** | **Yes** | No |
+| [**FcsFastBTreeN&lt;TKey, TValue&gt;**](#fcsfastbtreentkey-tvalue) | **Yes** | **Yes** | No |	
+| [**FcsLockBTreeN&lt;TKey, TValue&gt;**](#fcslockbtreentkey-tvalue) | **Yes** | **Yes** | No |
+| [**FcsFastLockBTreeN&lt;TKey, TValue&gt;**](#fcsfastlockbtreentkey-tvalue) | **Yes** | **Yes** | No |
+| SortedSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | **Yes** | No | No |
+| HashSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | No | No | No |
+| Dictionary&lt;TKey, TValue&gt; | No | No | No |
 
 &nbsp;
 ## Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Windows 10, 64bit, .NET Standard 1.2
+* TKey = int, TValue = uint
 >**Adding in a single thread:**
 
 |  | sorted by&nbsp;key | iteration | total&nbsp;(ms) | one time (ns) | speed | RAM&nbsp;(MB) | occupied |
