@@ -201,7 +201,7 @@ The method finds the first key and returns the key value pair or null.
   public virtual bool? BtnFirst(out TKey key, out TValue value)
   {
   }
-  protected (TKey key, TValue value)? _BtnFirst()
+  protected (TKey key, TValue value)? BtnFirst()
   {
   }
 ```
@@ -254,7 +254,7 @@ The method finds the specified key or the next lower and returns the key value p
 Install via Nuget Package Manager
 
 ```
-PM> Install-Package FriendlyCSherp.Databases
+PM> Install-Package FriendlyCSharp.Databases
 ```
 
 ## LICENSE
