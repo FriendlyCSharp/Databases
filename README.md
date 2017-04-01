@@ -16,7 +16,6 @@ A library of cross platform C# data structures. Generic [**B-tree**](https://en.
    + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
    + `Methods:` BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 
-&nbsp;
 ### Performance
 A [**B-tree**](https://en.wikipedia.org/wiki/B-tree) of order m is a tree which satisfies the following properties:
 1. Every node has at most m children.
@@ -36,7 +35,6 @@ A [**B-tree**](https://en.wikipedia.org/wiki/B-tree) of order m is a tree which 
 | HashSet&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; | No | No | No | No |
 | Dictionary&lt;TKey, TValue&gt; | No | No | No | No |
 
-&nbsp;
 ### Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
@@ -62,7 +60,6 @@ The benchmark was configured as follows:
 | HashSet&lt;...&gt; | No | 10,000,000 | 47.3 | 4,73 | 422%	|
 | Dictionary&lt;...&gt; | No | 10,000,000 | 86.5 | 8,65 | 231% |		
 
-&nbsp;
 ### Functions
 Various methods used throughout the library.
 
@@ -259,11 +256,11 @@ public virtual (TKey key, TValue value)? BtnSearchPrev(TKey key)
 ```cs
 ```
 
+&nbsp;
 ## MemoryStream generic class \[where T : struct\]
 #### [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs)
    + `Methods:` Append, Close, Length, Position, Read, Seek, Write.
 
-&nbsp;
 ### Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
@@ -279,11 +276,13 @@ The benchmark was configured as follows:
 | IOPS \[T = 128 Byte\] | 20,000,000 | 48,000,000 | 33,000,000 |
 | IOPS \[T = 256 Byte\] | 10,000,000 | 22,000,000 | 15,000,000 |
 
-## Install
+&nbsp;
+## INSTALL
 Install via Nuget Package Manager
 
 ```
 PM> Install-Package FriendlyCSharp.Databases
 ```
+&nbsp;
 ## LICENSE
 See the [LICENSE](LICENSE).
