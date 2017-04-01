@@ -17,7 +17,7 @@ A library of cross platform C# data structures. Generic [**B-tree**](https://en.
    + `Methods:` BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 
 &nbsp;
-## Performance
+### Performance
 A [**B-tree**](https://en.wikipedia.org/wiki/B-tree) of order m is a tree which satisfies the following properties:
 1. Every node has at most m children.
 2. Every non-leaf node (except root) has at least ⌈m/2⌉ children.
@@ -37,10 +37,11 @@ A [**B-tree**](https://en.wikipedia.org/wiki/B-tree) of order m is a tree which 
 | Dictionary&lt;TKey, TValue&gt; | No | No | No | No |
 
 &nbsp;
-## Benchmark 
+### Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Windows 10, 64bit, .NET Standard 1.2
+* DDR3 Kingston @ 1333 MHz
 
 >**Adding in a single thread:**
 
@@ -62,10 +63,10 @@ The benchmark was configured as follows:
 | Dictionary&lt;...&gt; | No | 10,000,000 | 86.5 | 8,65 | 231% |		
 
 &nbsp;
-## Functions
+### Functions
 Various methods used throughout the library.
 
-### Comparator
+#### Comparator
 Some data structures require a comparator method to automatically keep their elements sorted upon insertion. 
 
 >Default comparator is initialized as follows:
@@ -98,11 +99,11 @@ public class MyBtnKeyValue : FcsBTreeN<int, uint>
 }
 ```
 
-### Iterators
+#### Iterators
 
 All ordered containers have stateful iterators. Typically an iterator is obtained by _Iterator()_ function of an ordered container. Once obtained, iterator''s _Next()_ function moves the iterator to the next element and returns true if there was a next element. If there was an element, then element''s can be obtained by iterator''s _Value()_ function. Depending on the ordering type, it''s position can be obtained by iterator''s _Key()_ functions. Some containers even provide reversible iterators, essentially the same, but provide another extra _Prev()_ function that moves the iterator to the previous element and returns true if there was a previous element.Note: it is unsafe to remove elements from container while iterating.
 
-#### Iterator
+##### Iterator
 
 Tree gradually passes from the lowest, from the specified keys or higher.
 
@@ -146,7 +147,7 @@ if (MyBtnKeyValue.BtnSearch(ref btnKey, out btnValue) != null)
 }
 ```
 
-#### Reverse Iterator
+##### Reverse Iterator
 
 The tree passes successively from the last or entered or lower than the specified key.
 
@@ -184,7 +185,7 @@ if (MyBtnKeyValue.BtnSearchPrev(btnKey, out btnValue) != null)
 }
 ```
 
-### Enumerate
+#### Enumerate
 
 Methods that seek the desired key and returns the key value pair or null.
 
@@ -257,13 +258,32 @@ public virtual (TKey key, TValue value)? BtnSearchPrev(TKey key)
 
 ```cs
 ```
-　
+
+## MemoryStream generic class \[where T : struct\]
+#### [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs)
+   + `Methods:` Append, Close, Length, Position, Read, Seek, Write.
+
+&nbsp;
+### Benchmark 
+The benchmark was configured as follows:
+* CPU: Intel Xeon E3-1245 @ 3.3 GHz;
+* Windows 10, 64bit, .NET Standard 1.2
+* DDR3 Kingston @ 1333 MHz
+
+| [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs) | Append | Read | Write |
+| --- | ---: | ---: | ---: |
+| IOPS \[T =   8 Byte\] | **333**,000,000 | **1,100**,000,000 | **750**,000,000 |
+| IOPS \[T =  16 Byte\] | **190**,000,000 | **550**,000,000 | **470**,000,000 |
+| IOPS \[T =  32 Byte\] | **98**,000,000 | **280**,000,000 | **246**,000,000 |
+| IOPS \[T =  64 Byte\] | 42,000,000 | **130**,000,000 | **95**,000,000 |
+| IOPS \[T = 128 Byte\] | 20,000,000 | 48,000,000 | 33,000,000 |
+| IOPS \[T = 256 Byte\] | 10,000,000 | 22,000,000 | 15,000,000 |
+
 ## Install
 Install via Nuget Package Manager
 
 ```
 PM> Install-Package FriendlyCSharp.Databases
 ```
-
 ## LICENSE
 See the [LICENSE](LICENSE).
