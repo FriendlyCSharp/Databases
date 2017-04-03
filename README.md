@@ -266,7 +266,7 @@ The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
 * Windows 10, 64bit, .NET Standard 1.2
 * 4x4 GB DDR3 Kingston @ 1333 MHz
-* Append, Read, Write (cache 65,000 T) and foreach (cache 128 T)
+* Append, Read, Write (*cache 65,000 T*) and foreach (*cache 128 T*)
 
 | [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs) | Append | Read | Write | foreach |
 | --- | ---: | ---: | ---: | ---: |
