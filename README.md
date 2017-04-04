@@ -259,7 +259,7 @@ public virtual (TKey key, TValue value)? BtnSearchPrev(TKey key)
 &nbsp;
 ## MemoryStream generic class
 #### [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs) \[where T : struct\]
-   + `Methods:` Append, Close, Length, Position, Read, Seek, Write.
+   + `Methods:` Append, Close, Length, Open, Position, Read, Seek, Write.
 
 ### Benchmark 
 The benchmark was configured as follows:
