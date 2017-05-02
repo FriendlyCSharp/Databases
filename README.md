@@ -5,14 +5,14 @@ A library of cross platform C# data structures. Generic [**B-tree**](https://en.
 
 &nbsp;
 ## B-Tree generic class
-#### [FcsBTreeN&lt;TKey, TValue&gt;](FcsBTreeN.cs)
+#### [FcsBTreeN&lt;TKey, TValue&gt;](https://github.com/inmem/FriendlyCSharp.Databases)
    + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-#### [FcsFastBTreeN&lt;TKey, TValue&gt;](FcsFastBTreeN.cs)
+#### [FcsFastBTreeN&lt;TKey, TValue&gt;](https://github.com/inmem/FriendlyCSharp.Databases)
    + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
    + `Methods:` BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
-#### [FcsLockBTreeN&lt;TKey, TValue&gt;](FcsLockBTreeN.cs)
+#### [FcsLockBTreeN&lt;TKey, TValue&gt;](https://github.com/inmem/FriendlyCSharp.Databases)
    + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
-#### [FcsFastLockBTreeN&lt;TKey, TValue&gt;](FcsFastLockBTreeN.cs)
+#### [FcsFastLockBTreeN&lt;TKey, TValue&gt;](https://github.com/inmem/FriendlyCSharp.Databases)
    + `Methods:` BtnCompares, BtnUpdates, BtnAdd, BtnDeleteAll, BtnFind, BtnFirst, BtnLast, BtnNext, BtnPrev, BtnSearch, BtnSearchPrev, BtnUpdate and BtnUsedKeys.
    + `Methods:` BtnFastFind, BtnFastFirst, BtnFastLast, BtnFastNext, BtnFastPrev, BtnFastSearch, BtnFastSearchPrev.
 
@@ -41,7 +41,7 @@ A [**B-tree**](https://en.wikipedia.org/wiki/B-tree) of order m is a tree which 
 ### Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
-* Windows 10, 64bit, .NET Standard 1.2
+* Windows 10, 64bit, .NET Standard 1.1
 * 4x4 GB DDR3 Kingston @ 1333 MHz
 
 >**Adding in a single thread:**
@@ -99,11 +99,7 @@ public class MyBtnKeyValue : FcsBTreeN<int, uint>
 }
 ```
 
-#### Iterators
-
-All ordered containers have stateful iterators. Typically an iterator is obtained by _Iterator()_ function of an ordered container. Once obtained, iterator''s _Next()_ function moves the iterator to the next element and returns true if there was a next element. If there was an element, then element''s can be obtained by iterator''s _Value()_ function. Depending on the ordering type, it''s position can be obtained by iterator''s _Key()_ functions. Some containers even provide reversible iterators, essentially the same, but provide another extra _Prev()_ function that moves the iterator to the previous element and returns true if there was a previous element.Note: it is unsafe to remove elements from container while iterating.
-
-##### Iterator
+#### Iterator
 
 Tree gradually passes from the lowest, from the specified keys or higher.
 
@@ -147,7 +143,7 @@ if (MyBtnKeyValue.BtnSearch(ref btnKey, out btnValue) != null)
 }
 ```
 
-##### Reverse Iterator
+#### Reverse Iterator
 
 The tree passes successively from the last or entered or lower than the specified key.
 
@@ -185,7 +181,7 @@ if (MyBtnKeyValue.BtnSearchPrev(btnKey, out btnValue) != null)
 }
 ```
 
-#### Enumerate
+### Enumerate
 
 Methods that seek the desired key and returns the key value pair or null.
 
@@ -261,7 +257,7 @@ public virtual (TKey key, TValue value)? BtnSearchPrev(TKey key)
 
 &nbsp;
 ## MemoryStream generic class
-#### [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs) \[where T : struct\]
+#### [FcsInmemStream&lt;T&gt;](https://github.com/inmem/FriendlyCSharp.Databases) \[where T : struct\]
    + `Methods:` Append, Close, Length, Open, Position, Read, Seek, Write.
 
 ### Source code
@@ -270,11 +266,11 @@ See the [Github](https://github.com/inmem/FriendlyCSharp.Databases).
 ### Benchmark 
 The benchmark was configured as follows:
 * CPU: Intel Xeon E3-1245 @ 3.3 GHz;
-* Windows 10, 64bit, .NET Standard 1.2
+* Windows 10, 64bit, .NET Standard 1.1
 * 4x4 GB DDR3 Kingston @ 1333 MHz
 * Append, Read, Write (*cache 1,000 T*) and foreach (*cache 128 T*)
 
-| [FcsInmemStream&lt;T&gt;](FcsInmemStream.cs) | Append | Read | Write | foreach |
+| [FcsInmemStream&lt;T&gt;](https://github.com/inmem/FriendlyCSharp.Databases) | Append | Read | Write | foreach |
 | --- | ---: | ---: | ---: | ---: |
 | IOPS \[T =    8 Byte\] | **160**,000,000 | **800**,000,000 | **800**,000,000 | 80,000,000 |
 | IOPS \[T =   16 Byte\] | **140**,000,000 | **500**,000,000 | **400**,000,000 | 80,000,000 |
